@@ -88,3 +88,36 @@ body {
         height: 100px;
     }
 }
+
+/* STYLE DES TAGS */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 0 15px 25px 15px;
+}
+
+.tag {
+    font-size: 0.65rem; /* Plus petit pour un look pro */
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px; /* Forme pilule plus esthétique */
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    
+    /* Mix entre Neumorphisme et couleur */
+    background: #e0e5ec;
+    color: #4b6cb7; /* Bleu professionnel */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #ffffff;
+    
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+}
