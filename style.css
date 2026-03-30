@@ -1,15 +1,16 @@
-/* BASE */
+/* ===== BASE (Mode clair par défaut) ===== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     background: #e0e5ec;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 10px 0;
+    color: #1a1a1a;
 }
 
-/* BOX CENTRALE */
 .app-card {
     background: linear-gradient(145deg, #ffffff, #f0f0f3);
     border-radius: 30px;
@@ -17,79 +18,62 @@ body {
     width: 320px;
     box-shadow: 20px 20px 60px #c5c5c5, -20px -20px 60px #ffffff;
     text-align: center;
+    margin: 20px 0;
+    color: #1a1a1a;
 }
 
-/* PHOTO */
 .profile {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s;
 }
 
-.profile:hover {
-    transform: scale(1.05);
-}
+.profile:hover { transform: scale(1.05); }
 
-/* TITRE & ROLE */
-.app-card h1 {
-    margin: 0;
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
+.app-card h1 { color: #1a1a1a; }
+.role { color: #3b3b3b; font-weight: bold; margin: 0 0 5px 0; }
+.tech { color: #5a5a5a; font-size: 0.9em; margin-bottom: 25px; }
 
-.role {
-    font-weight: bold;
-    color: #555;
-    margin: 0 0 5px 0;
-}
-
-.tech {
-    font-size: 0.9em;
-    color: #777;
-    margin-bottom: 25px;
-}
-
-/* BOUTONS */
-.buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+.buttons { display: flex; flex-direction: column; gap: 15px; }
 
 .button {
-    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
     border-radius: 15px;
     text-decoration: none;
     color: white;
     font-weight: bold;
     background: linear-gradient(135deg, #6a11cb, #2575fc);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 
 .button:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #FF4B2B, #FF6F61);
 }
 
-/* RESPONSIVE */
-@media (max-width: 400px) {
-    .app-card {
-        width: 90%;
-        padding: 30px 20px;
-    }
+.button .icon { display: flex; align-items: center; }
+.button .icon img { width: 20px; height: 20px; filter: invert(1); }
 
-    .profile {
-        width: 100px;
-        height: 100px;
-    }
+.button.linkedin {
+    margin-top: 40px;
+    background: linear-gradient(135deg, #0A66C2, #004182);
 }
+.button.linkedin:hover { background: linear-gradient(135deg, #004182, #00305a); }
 
-/* STYLE DES TAGS */
+.button.github {
+    background: linear-gradient(135deg, #333, #24292e);
+}
+.button.github:hover { background: linear-gradient(135deg, #24292e, #111); }
+
 .tags {
     display: flex;
     flex-wrap: wrap;
@@ -99,19 +83,16 @@ body {
 }
 
 .tag {
-    font-size: 0.65rem; /* Plus petit pour un look pro */
+    font-size: 0.65rem;
     font-weight: 700;
     padding: 3px 10px;
-    border-radius: 20px; /* Forme pilule plus esthétique */
+    border-radius: 20px;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    
-    /* Mix entre Neumorphisme et couleur */
     background: #e0e5ec;
-    color: #4b6cb7; /* Bleu professionnel */
+    color: #4b6cb7;
     border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 3px 3px 6px #b8b9be, -3px -3px 6px #ffffff;
-    
     transition: all 0.3s ease;
 }
 
@@ -120,4 +101,29 @@ body {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
-} 
+}
+
+/* ===== MODE SOMBRE ===== */
+@media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #e0e0e0; }
+    .app-card {
+        background: linear-gradient(145deg, #1e1e1e, #2c2c2c);
+        box-shadow: 20px 20px 60px #0d0d0d, -20px -20px 60px #323232;
+        color: #e0e0e0;
+    }
+    .app-card h1 { color: #ffffff; }
+    .role { color: #d1d1d1; }
+    .tech { color: #b5b5b5; }
+    .tag {
+        background: #2c2c2c;
+        color: #6fa0ff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 3px 3px 6px #181818, -3px -3px 6px #383838;
+    }
+    .tag:hover {
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: white;
+        box-shadow: 0 4px 10px rgba(106, 17, 203, 0.5);
+    }
+    .button { color: #ffffff; }
+}
